@@ -1,0 +1,4 @@
+SportsModeHelp
+==============
+
+SportsMode support documentation
