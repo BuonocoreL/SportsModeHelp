@@ -1,0 +1,702 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Sportsmodehelp by BuonocoreL</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Sportsmodehelp</h1>
+        <p class="header">SportsMode support documentation</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/BuonocoreL/SportsModeHelp/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/BuonocoreL/SportsModeHelp/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/BuonocoreL/SportsModeHelp">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/BuonocoreL">BuonocoreL</a></p>
+
+
+      </header>
+      <section>
+        <h1>SportsMode Trouble Shooting Process and Procedures</h1>
+
+<p>When a user reports an issue using the Report Issue feature from the SportsMode menu, or by sending an email to the <a href="mailto:2016-Help@espn.com">2016-Help@espn.com</a> email address, a ticket is created in the 2016 Support project in Jira.  <strong>Using the Report Issue feature, has the added benefit of including all of the relevant debug information from the user's application and is the preferred method for reporting issues.</strong> </p>
+
+<p>Jira tickets will automatically get assigned to Statz’s team and the team will automatically receive notification from Jira of the new issue.</p>
+
+<p><strong>For every issue received from a user, contact the user advising them that their ticket has been received and is under review.</strong></p>
+
+<p><strong>Likely Issues Encountered</strong></p>
+
+<ul>
+<li>Rundown VOD clip doesn’t play (user enters failed rundown item)</li>
+<li>No rundown (panel empty, not between expected times)</li>
+<li>Fantasy team not updating correctly (user enters faulty team/player/score)</li>
+<li>Program information incorrect (user enters incorrect program/channel)</li>
+<li>Live Rundown element failed to tune</li>
+<li>Guide failed to tune (user enters failing program/channel)</li>
+<li>Scoreboard Failed to Tune (user enters failed game)</li>
+<li>Hear audio-only, no video</li>
+<li>Not receiving likes or shares</li>
+</ul><h2>Rundown VOD Clip Doesn't Play</h2>
+
+<hr><ol>
+<li>Attempt to play the same VOD on a mirror setup stack following the steps outlined in Step #4 then continue to Step #2. (Rundown text is in the ticket – user entered it.)</li>
+<li>Contact user and arrange support on the user's device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Attempt to play same VOD on the user's stack. (Rundown text is in the ticket - user entered it.)<br><ul>
+<li>If element has video available (white TV icon) but the “tune in” option is disabled, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If the VOD plays:
+
+<ul>
+<li>If first time playing, resolve the ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If the VOD plays, but you hear only audio, hard reset the Google TV (unplug) and return to Step #4 </li>
+<li>If the VOD does not play:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.<br>
+</li>
+<li>If no connection, reconnect to network. Return to Step #4<br>
+</li>
+</ul>
+</li>
+<li>Check HLS server connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check HLS Video Server Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>Matt Tretin</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check known HLS video
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Under Video, play the test HLS video stream
+
+<ul>
+<li>If it plays correctly, continue.</li>
+<li>If it plays, but you hear audio-only with black video, hard reset the Google TV (unplug) and return to Step #4.4.3.</li>
+<li>If it fails to play, escalate/re-assign to <strong>Matt Tretin</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check the Rundown HLS video
+
+<ul>
+<li>Obtain the Rundown VOD URL from the debug report (match based on text in ticket).</li>
+<li>Attempt to play the URL in QuickTime or VLC.
+
+<ul>
+<li>If it plays, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If it fails to play, escalate/re-assign to <strong>Matt Tretin</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>No Rundown (Panel Empty Not Between Expected Times)</h2>
+
+<hr><ol>
+<li>Check the availability of the rundown on a mirror setup stack.  Follow the steps outlined in Step#4 then continue to Step#2.</li>
+<li>Contact the user and arrange support on user's device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Check the availability of the rundown on the user's stack.
+
+<ul>
+<li>If Rundown is available:
+
+<ul>
+<li>If first time testing, resolve ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If Rundown is not available:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #4</li>
+</ul>
+</li>
+<li>Check EPG API connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check EPG API Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check current Rundown state
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check “Current SC Rundowns” - current future, live, and past Rundown under EPG API
+
+<ul>
+<li>If elements exist, escalate/re-assign to <strong>DeRon Brown</strong>. Continue.</li>
+<li>If no elements exist, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+<li>Check current future, live, and past Rundown from the debug report.
+
+<ul>
+<li>If elements exist, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If no elements exist, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Fantasy Team Not Updating Correctly</h2>
+
+<hr><ol>
+<li>Check the availability of Fantasy data on a mirror setup stack. Follow the steps outlined in Step #4 then continue to Step#2.</li>
+<li>Contact user and arrange support on user's device.</li>
+<li>Confirm proper deployment stack.</li>
+<li> Check the availability of Fantasy data on the user's stack.
+
+<ul>
+<li>If Fantasy is available:
+
+<ul>
+<li>If first time testing, resolve ticket as "Cannot Reproduce".</li>
+<li>Otherwise, resolve the ticket as "Fixed".</li>
+</ul>
+</li>
+<li>If Fantasy is not available:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to step #4</li>
+</ul>
+</li>
+<li>Escalate/re-assign to <strong>DeRon Brown</strong>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Program Information Incorrect</h2>
+
+<hr><ol>
+<li>Check the program information on a same setup stack. Follow the steps outlined in Step #4 then continue to Step #2. (Applicable program/channel is in the ticket – user entered it.)</li>
+<li>Contact user and arrange support on user’s device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Check the program information on the user’s stack. (Applicable program/channel is in the ticket – user entered it.)
+
+<ul>
+<li>If program information is correct:
+
+<ul>
+<li>If first time testing, resolve ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If program information is incorrect:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #4</li>
+</ul>
+</li>
+<li>Check EPG API server connection
+
+<ul>
+<li>Open the Debug Console (press 'd' on the remote)</li>
+<li>Check EPG API Latency
+
+<ul>
+<li>If PASS (has millisecond value) escalate/re-assign to <strong>DeRon Brown</strong>
+</li>
+<li>If FAIL, escalate/re-assign to <strong>Prasanna Gautam</strong>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Live Rundown (Red) Element Failed to Tune</h2>
+
+<hr><ol>
+<li>Attempt to tune the live Rundown (red) element on a same setup stack. Follow the steps outlined in Step #4 then continue to Step #2.</li>
+<li>Contact user and arrange support on user’s device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Attempt to tune the live Rundown (red) element on the user’s stack.
+
+<ul>
+<li>If the element has the “tune in” option disabled, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If it tunes you to SportsCenter:
+
+<ul>
+<li>If first time testing, resolve ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If it fails to tune:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #4</li>
+</ul>
+</li>
+<li>Check EPG API connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check EPG API Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check current Rundown state (if in an expected time)
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check current future, live, and past Rundown under EPG API
+
+<ul>
+<li>If elements exist, continue.</li>
+<li>If no elements exist, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+<li>Check current future, live, and past Rundown from the debug report
+
+<ul>
+<li>If elements exist, continue.</li>
+<li>If no elements exist, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check device pairing
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check pairing device information:
+
+<ul>
+<li>If paired device is “corpmcast” or “ciscocatv”, check paired device ID:
+
+<ul>
+<li>If ID does not match deploy stack or is empty, follow the deployment instructions to pair the device. Return to Step #4</li>
+<li>If ID matches, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/re-assign to <strong>Aakash Chokshi</strong>.</li>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “googletv”, Test GTV tuning:
+
+<ul>
+<li>If information says “fail internal GTV error”, escalate/re-assign to <strong>DeRon Brown</strong> with a note to contact Google.</li>
+<li>Otherwise, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/reassign to <strong>DeRon Brown</strong>.</li>
+<li>If notification reads “channel not available”, escalate/reassign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/reassign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “allhls”:
+
+<ul>
+<li>Check HLS server connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check HLS Video Server Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re assign to <strong>Matt Tretin</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Guide Failed to Tune</h2>
+
+<hr><ol>
+<li>Attempt to tune the same channel/program on a same setup stack. Follow the steps outlined in Step #4 then continue to Step #2. (Applicable program/channel is in the ticket – user entered it.)</li>
+<li>Contact user and arrange support on user’s device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Attempt to tune the same channel/program on the user’s stack.
+
+<ul>
+<li>If it tunes correctly:
+
+<ul>
+<li>If first time testing, resolve ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If it fails to tune:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #4</li>
+</ul>
+</li>
+<li>Check EPG API connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check EPG API Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/reassign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check device pairing
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check pairing device information:
+
+<ul>
+<li>If paired device is “corpmcast” or “ciscocatv”, check paired device ID:
+
+<ul>
+<li>If ID does not match deploy stack or is empty, follow the deployment instructions to pair the device. Return to Step #4</li>
+<li>If ID matches, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/re-assign to <strong>Aakash Chokshi</strong>.</li>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “googletv”, test GTV tuning:
+
+<ul>
+<li>If information says “fail internal GTV error”, escalate/re-assign to <strong>DeRon Brown</strong> with a note to contact Google.</li>
+<li>Otherwise, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “allhls”:
+
+<ul>
+<li>Check HLS server connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check HLS Video Server Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>Matt Tretin</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Scoreboard Failed to Tune</h2>
+
+<hr><ol>
+<li>Attempt to tune the same game on a same setup stack. Follow the steps outlined in Step #4 then continue to Step #2. (Applicable game is in the ticket – user entered it.)</li>
+<li>Contact user and arrange support on user’s device.</li>
+<li>Confirm proper deployment stack.</li>
+<li>Attempt to tune the same game on the user’s stack.
+
+<ul>
+<li>If the game has a video unavailable icon (TV icon with a slash) and has not been routed, close the ticket as “Won’t fix”, and explain to the user that this game is not available. If it has been routed, escalate to <strong>DeRon Brown</strong>.</li>
+<li>If the game has video available (no TV icon with a slash) and has the “tune in” option disabled, escalate to <strong>DeRon Brown</strong>.</li>
+<li>If the game has a video unavailable icon (TV with a slash) and has the “tune in” option enabled, escalate to <strong>DeRon Brown</strong>.</li>
+<li>If it tunes correctly:
+
+<ul>
+<li>If first time testing, resolve ticket as “Cannot Reproduce”.</li>
+<li>Otherwise, resolve the ticket as “Fixed”.</li>
+</ul>
+</li>
+<li>If it fails to tune:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #4</li>
+</ul>
+</li>
+<li>Check EPG API connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check EPG API Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check V1 API connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check V1 API Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check device pairing
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check pairing device information:
+
+<ul>
+<li>If paired device is “corpmcast” or “ciscocatv”, check paired device ID:
+
+<ul>
+<li>If ID does not match deploy stack or is empty, follow the deployment instructions to pair the device. Return to Step #4</li>
+<li>If ID matches, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/re-assign to <strong>Aakash Chokshi</strong>.</li>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “googletv”, Test GTV tuning:
+
+<ul>
+<li>If information says “fail internal GTV error”, escalate/re-assign to <strong>DeRon Brown</strong> with a note to contact Google.</li>
+<li>Otherwise, return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “failed to tune your device”, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna  Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If paired device is “allhls”:
+
+<ul>
+<li>Check HLS server connection
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Check HLS Video Server Latency
+
+<ul>
+<li>If PASS (has millisecond value), continue.</li>
+<li>If FAIL, escalate/re-assign to ** Matt Tretin**.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return to app and attempt to tune again:
+
+<ul>
+<li>If notification reads “channel not available”, escalate/re-assign to <strong>Prasanna Gautam</strong>.</li>
+<li>If you hear audio only, but no video, hard reset the Google TV (unplug) and return to Step #4.</li>
+<li>Otherwise, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Hear Audio Only, But No Video</h2>
+
+<hr><ol>
+<li>Confirm proper deployment stack.</li>
+<li>Hard reset the Google TV (unplug).</li>
+<li>Check known HLS video
+
+<ul>
+<li>Open the Debug Console (press ‘d’ on the remote)</li>
+<li>Under Video, play the test HLS video stream
+
+<ul>
+<li>If it plays correctly, close the ticket as “Fixed”.</li>
+<li>If it fails to play, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol><h2>Not Receiving Likes or Shares</h2>
+
+<hr><ol>
+<li>Confirm proper deployment stack.</li>
+<li>Attempt to “Like” a rundown VOD:
+
+<ul>
+<li>If you see a “like” notifications
+
+<ul>
+<li>If first time testing, resolve the ticket as “Cannot Reproduce”</li>
+<li>Otherwise, resolve the ticket as “Fixed”</li>
+</ul>
+</li>
+<li>If it fails:
+
+<ul>
+<li>Check device network connection
+
+<ul>
+<li>If has connection (Ethernet/Wifi), continue.</li>
+<li>If no connection, reconnect to network. Return to Step #2</li>
+</ul>
+</li>
+<li>Check auto-standby settings
+
+<ul>
+<li>Press the Search button the keyboard side of the remote (magnifying glass)</li>
+<li>Type “Settings” and select the Settings app</li>
+<li>Go to “Unit Settings”</li>
+<li>Check Auto-Standby
+
+<ul>
+<li>If it is “On”, change the setting to “Off”, restart the device, and return to Step #2</li>
+<li>If it is “Off”, escalate/re-assign to <strong>DeRon Brown</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
